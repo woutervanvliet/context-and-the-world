@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import Clock from './clock';
+import RelativeDate from './relative-date'
+import World from "./world";
+import Country from "./country";
+import Area from "./area";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+	  <World>
+		  <Area timezoneOffset={0}>
+			  <Country name={"Denmark"}>
+				  <Clock />
+			  </Country>
+		  </Area>
+		  <Area timezoneOffset={-Math.PI}>
+			  <Country name={"Krakozia"}>
+				  <Clock />
+			  </Country>
+		  </Area>
+		  <RelativeDate />
+	  </World>
     );
   }
 }
